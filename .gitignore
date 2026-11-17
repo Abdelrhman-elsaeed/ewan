@@ -1,5 +1,6 @@
 # Generated delivery bundles and previews
 *.zip
+*.zip.tmp
 /services-preview.png
 /outputs/
 
@@ -7,6 +8,8 @@
 **/.hyperframes/
 **/node_modules/
 **/.cache/
+**/__pycache__/
+*.py[cod]
 *.log
 
 # Local configuration and credentials
