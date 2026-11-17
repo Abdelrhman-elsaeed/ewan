@@ -1,0 +1,77 @@
+:root[data-theme="light"] { color-scheme: light; color: #203f2d; background: #f2f7ed; }
+[data-theme="light"] #ewan-school-film { background: #f2f7ed; }
+[data-theme="light"] .film-scene { background: radial-gradient(ellipse at 25% 34%,#deecd5,#eef5e7 42%,#f7faf2 80%); }
+[data-theme="light"] .scene-tag, [data-theme="light"] .scene-description { color: #4d6845; }
+[data-theme="light"] .scene-tag i { background: #4e7943; }
+[data-theme="light"] .scene-proof, [data-theme="light"] .scene-payoff { border-color: #afc6a2; }
+[data-theme="light"] .scene-proof div > span, [data-theme="light"] .metric-description { color: #536c4b; }
+[data-theme="light"] .proof-before strong { color: #607657; }
+[data-theme="light"] .proof-after strong { color: #256332; }
+[data-theme="light"] .proof-arrow { color: #4e7543; }
+[data-theme="light"] .art-coordinate-grid { background-image: linear-gradient(#698f4e12 1px,transparent 1px),linear-gradient(90deg,#698f4e12 1px,transparent 1px); }
+[data-theme="light"] .sheet { background: linear-gradient(145deg,#fff,#edf5e7 75%); border-color: #abc79b; box-shadow: 0 20px 35px #25491e25,inset 0 1px #fff; }
+[data-theme="light"] .sheet-head { color: #30552d; border-color: #c4d7b7; }
+[data-theme="light"] .sheet-identity i { background: #548b45; }
+[data-theme="light"] .sheet-head small, [data-theme="light"] .sheet-context, [data-theme="light"] .sheet-summary { color: #506c44; }
+[data-theme="light"] .sheet-dots b { background: #608950; }
+[data-theme="light"] .data-table { color: #34532e; }
+[data-theme="light"] .data-table :is(th,td) { border-color: #d1dfc7; }
+[data-theme="light"] .data-table thead { color: #526d46; background: #dbeaca88; }
+[data-theme="light"] .data-table tbody tr:nth-child(even) { background: #b3d29c10; }
+[data-theme="light"] .pill { color: #3f6434; background: #dcebcf; border-color: #b2ce9b; }
+[data-theme="light"] .pill.mint { color: #2a6235; background: #d7ebd0; border-color: #9bc39a; }
+[data-theme="light"] .pill.warm { color: #80532d; background: #f1e5cf; border-color: #d6bc93; }
+[data-theme="light"] .follow-status { color: #8b4d24 !important; }
+[data-theme="light"] .phone-card { border-color: #92ad86; background: linear-gradient(140deg,#fff,#e1edda); box-shadow: 0 17px 35px #23451c26; }
+[data-theme="light"] .phone-head b, [data-theme="light"] .phone-notice-time { color: #516b43; }
+[data-theme="light"] .departure-note { background: #d6e8ca; border-color: #92b27f; box-shadow: 0 12px 23px #294f1d20; }
+[data-theme="light"] .departure-note b { color: #31562b; }
+[data-theme="light"] .departure-note div > span { color: #4d6a42; }
+[data-theme="light"] .check-sign { color: #356a39; }
+[data-theme="light"] .route-diagram { color: #47793c; }
+[data-theme="light"] .route-track { stroke: #6b944d66; }
+[data-theme="light"] .route-draw { stroke: #578d41; }
+[data-theme="light"] .student-profile p, [data-theme="light"] .skill-gauge { color: #405c35; }
+[data-theme="light"] .student-avatar { border-color: #8dad77; background: #c6dfb4; }
+[data-theme="light"] .student-avatar i, [data-theme="light"] .student-avatar b { border-color: #50783d; }
+[data-theme="light"] .skill-gauge i { background: #518748; }
+[data-theme="light"] .skill-gauge b { color: #355f2f; }
+[data-theme="light"] .plan-result, [data-theme="light"] .schedule-complete, [data-theme="light"] .files-note { color: #3f6733; }
+[data-theme="light"] .period { background: #e5efdc; border-color: #b9cfaa; color: #3a5e30; }
+[data-theme="light"] .period small { color: #506d45; }
+[data-theme="light"] .conflict-period { color: #effae8; }
+[data-theme="light"] .conflict-period small, [data-theme="light"] .conflict-period .conflict-new { color: #ddf2d4; }
+[data-theme="light"] .conflict-period > .conflict-old { color: #f3d2b1; }
+[data-theme="light"] .conflict-callout { color: #714b2f; background: #f3e4ce; border-color: #c6aa86; }
+[data-theme="light"] .conflict-callout > span { color: #85552c; border-color: #a57643; }
+[data-theme="light"] .conflict-callout small { color: #4b5d36; }
+[data-theme="light"] .conflict-new { color: #3e6b37; }
+[data-theme="light"] .conflict-old { color: #855839; }
+[data-theme="light"] .target-label { color: #476b39; }
+[data-theme="light"] .target-label strong { color: #35602c; }
+[data-theme="light"] .loose-file { color: #43653a; background: #edf4e5; border-color: #a7c092; box-shadow: 0 12px 22px #25451b15; }
+[data-theme="light"] .loose-file b { color: #4a733d; }
+[data-theme="light"] .loose-file > span { color: #4b6b3b; }
+[data-theme="light"] .index-search { background: #f6faef; border-color: #abc595; color: #3e6333; }
+[data-theme="light"] .index-search b { color: #5c754d; }
+[data-theme="light"] .search-icon { border-color: #547e40; }
+[data-theme="light"] .search-icon::after { background: #547e40; }
+[data-theme="light"] .paper-letterhead div > span, [data-theme="light"] .document-id { color: #526d45; }
+[data-theme="light"] .notice-paper > p, [data-theme="light"] .signature-area > small { color: #536a45; }
+[data-theme="light"] .print-ticket { background: #d8e9ca; border-color: #99b77f; box-shadow: 0 15px 30px #25451b20; }
+[data-theme="light"] .print-ticket b { color: #32592b; }
+[data-theme="light"] .print-ticket div > span { color: #4f6e3f; }
+[data-theme="light"] .printer-icon, [data-theme="light"] .printer-icon::before { border-color: #50723a; }
+[data-theme="light"] .printer-icon::before { background: #e5efda; }
+[data-theme="light"] .insight-stats > div { border-color: #b9cfa8; }
+[data-theme="light"] .insight-stats span, [data-theme="light"] .performance-chart > span, [data-theme="light"] .film-bars span { color: #516d43; }
+[data-theme="light"] .insight-stats b { color: #305f2d; }
+[data-theme="light"] .tiny-trend { color: #487a38; }
+[data-theme="light"] .chart-rules i { background: #91b17644; }
+[data-theme="light"] .film-bars b { background: linear-gradient(#91bc6f,#457b3b); border-color: #5d9548; }
+[data-theme="light"] .priority-card { background: #dceccc; border-color: #a0bd85; box-shadow: 0 13px 25px #29491b19; }
+[data-theme="light"] .priority-card b { color: #385e29; }
+[data-theme="light"] .priority-card p, [data-theme="light"] .report-ready { color: #4c6c3b; }
+[data-theme="light"] .scene-payoff p { color: #375a32; }
+[data-theme="light"] .payoff-check { color: #416d34; border-color: #7ba365; }
+[data-theme="light"] .film-sample { color: #536c48; }

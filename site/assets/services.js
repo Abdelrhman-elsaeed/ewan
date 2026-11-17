@@ -48,13 +48,14 @@
     restart.title=c.replay;
     player.title=c.sceneLabel;
     ready=false;
-    player.src='assets/school-film/index.html?embed=1&lang='+document.documentElement.lang;
+    player.src='assets/school-film/index.html?embed=1&lang='+document.documentElement.lang+'&theme='+document.documentElement.dataset.theme;
     playback();
   }
   addEventListener('message',event=>{
     if(event.source!==player.contentWindow) return;
     if(event.data?.type==='ewan-film-ready') {
       ready=true;
+      command('theme',{theme:document.documentElement.dataset.theme});
       seek(current);
     } else if(event.data?.type==='ewan-film-state'&&Number.isInteger(event.data.chapter)&&event.data.chapter>=0&&event.data.chapter<6) {
       updateChapter(event.data.chapter,Math.max(0,Math.min(1,Number(event.data.progress)||0)));
@@ -91,6 +92,7 @@
     playback();
   });
   document.addEventListener('ewan:language',language);
+  document.addEventListener('ewan:theme',()=>command('theme',{theme:document.documentElement.dataset.theme}));
   document.querySelectorAll('[data-school-jump]').forEach(link=>link.addEventListener('click',()=>{
     seek(link.dataset.schoolJump==='files'?3:0);
   }));

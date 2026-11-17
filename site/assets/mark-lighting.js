@@ -29,6 +29,12 @@
   }
   context.setTransform(1, 0, 0, 1, 0, 0);
   const source = context.getImageData(0, 0, size, size).data;
+  const lightSource = new Uint8ClampedArray(source);
+  for (let k = 0; k < source.length; k += 4) {
+    const color = source[k] > 220 ? [32,92,65] : source[k] > 100 ? [38,109,79] : [20,130,85];
+    lightSource[k] = color[0]; lightSource[k + 1] = color[1]; lightSource[k + 2] = color[2];
+  }
+  let lightTheme = document.documentElement.dataset.theme === 'light';
   const output = context.createImageData(size, size);
 
   // Measure from each pixel to the opposite side of the silhouette.
@@ -80,6 +86,7 @@
 
   function shade(lightX, lightY) {
     const rgba = output.data;
+    const face = lightTheme ? lightSource : source;
     const depth = 72;
     const radiusSquared = 125 * 125;
     const castX = Math.round((size * .5 - lightX) * .048);
@@ -96,9 +103,9 @@
       const coverage = reflected + inShadow * 49;
       const color = coverage > 0 ? reflected / coverage : 0;
       const k = i * 4;
-      rgba[k] = 103 * color;
-      rgba[k + 1] = 220 * color;
-      rgba[k + 2] = 186 * color;
+      rgba[k] = (lightTheme ? 34 : 103) * color;
+      rgba[k + 1] = (lightTheme ? 117 : 220) * color;
+      rgba[k + 2] = (lightTheme ? 76 : 186) * color;
       rgba[k + 3] = coverage;
     }
 
@@ -118,11 +125,11 @@
       // Curved bevels catch the moving source more strongly than the flat face.
       const rim = Math.sqrt(nx * nx + ny * ny);
       const edgeShine = Math.pow(Math.max(0, facing), 5) * rim * distance * 120;
-      const gloss = 105 * specular + edgeShine;
+      const gloss = lightTheme ? 40 * specular + edgeShine * .45 : 105 * specular + edgeShine;
       const k = i * 4;
-      rgba[k] = source[k] * luminance + gloss * .76;
-      rgba[k + 1] = source[k + 1] * luminance + gloss;
-      rgba[k + 2] = source[k + 2] * luminance + gloss * .89;
+      rgba[k] = face[k] * luminance + gloss * .76;
+      rgba[k + 1] = face[k + 1] * luminance + gloss;
+      rgba[k + 2] = face[k + 2] * luminance + gloss * .89;
       rgba[k + 3] = source[k + 3];
     }
     context.putImageData(output, 0, 0);
@@ -172,6 +179,10 @@
     moveTo(size * (.5 + .37 * clamp(dx)), size * (.5 + .37 * clamp(dy)));
   }, { passive: true });
   hero.addEventListener('pointerleave', () => moveTo(restingX, restingY));
+  document.addEventListener('ewan:theme', () => {
+    lightTheme = document.documentElement.dataset.theme === 'light';
+    shade(lightX, lightY);
+  });
   reduced.addEventListener('change', () => {
     if (!reduced.matches) return;
     cancelAnimationFrame(frame);

@@ -20,6 +20,7 @@
   addEventListener('message', event=>{
     if (event.source!==parent || event.data?.type!=='ewan-film-command') return;
     const {action,chapter:requested,still}=event.data;
+    if (action==='theme'&&(event.data.theme==='light'||event.data.theme==='dark')) document.documentElement.dataset.theme=event.data.theme;
     if (action==='play') timeline.play();
     if (action==='pause') timeline.pause();
     if (action==='seek'&&Number.isInteger(requested)&&requested>=0&&requested<=5) {
