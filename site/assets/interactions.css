@@ -1,0 +1,65 @@
+.hero-symbol canvas { position: absolute; inset: -16.667%; width: 133.333%; height: 133.333%; visibility: hidden; pointer-events: none; }
+.hero-symbol.has-relief canvas { visibility: visible; }
+.hero-symbol.has-relief img { visibility: hidden; }
+.cursor-dot { top: 0; left: 0; transform-origin: center; }
+.cursor-dot.is-hovering { scale: 1.36; background: #dbfff1; }
+
+.work-cards { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: clamp(12px, 2vw, 23px); }
+.work-cards .work-card { width: 100%; display: flex; flex-direction: column; }
+.work-cards .work-visual { min-height: 0; padding: clamp(23px, 3vw, 41px) clamp(17px, 3vw, 40px); }
+.work-cards .work-meta { flex: 1; align-items: start; flex-direction: column; gap: 11px; }
+.work-cards .work-meta .button { min-height: 44px; padding: 7px 12px; margin-block-start: auto; }
+.work-cards .work-caption h3 { font-size: clamp(1.2rem, 2.3vw, 1.62rem); }
+.work-cards .work-caption { gap: 8px; }
+.work-cards .work-browser { transform: perspective(850px) rotateY(var(--work-y, 0deg)) rotateX(var(--work-x, 0deg)); transition: transform .38s var(--ease); }
+.about-inner .about-mark { width: 92px; margin-bottom: 23px; }
+.about-mark img { width: 100%; height: auto; }
+.client-section { background: #071618; border-block: 1px solid #294642; }
+.client-section .section { padding-block: clamp(66px, 8vw, 105px); }
+.client-grid { position: relative; isolation: isolate; width: min(100%, 830px); margin: auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.client-tile {
+  position: relative;
+  overflow: hidden;
+  display: grid;
+  justify-items: center;
+  align-content: center;
+  min-height: 194px;
+  padding: 22px 16px;
+  gap: 13px;
+  border: 1px solid #40635f;
+  border-radius: 14px;
+  background: radial-gradient(circle at var(--spot-x, 50%) var(--spot-y, 15%), #1d4a405f, #0e2023 65%);
+  text-align: center;
+  transition: border-color .2s;
+}
+.client-tile:hover { border-color: #73a89b; }
+.client-tile > .arrow { position: absolute; inset: 13px auto auto 14px; color: #a5cabe; }
+[dir="ltr"] .client-tile > .arrow { inset: 13px 14px auto auto; }
+.client-emblem { display: block; width: 98px; aspect-ratio: 1; overflow: hidden; border-radius: 50%; box-shadow: 0 8px 20px #02080a70; }
+.client-emblem img { display: block; width: 100%; height: 100%; object-fit: contain; }
+.client-emblem img[src$="taalam-logo.webp"] { transform: scale(1.075); }
+.client-tile strong { color: #d9ece7; font-size: .93rem; font-weight: 500; }
+.review-shell { position: relative; max-width: 770px; margin-inline: auto; padding: clamp(17px, 4vw, 36px); overflow: clip; border: 1px solid #3d5e59; border-radius: 18px; background: radial-gradient(ellipse at 50% -50%, #385143, #0b1a1e 73%); text-align: center; }
+.review-card { min-height: clamp(162px, 16vw, 230px); display: grid; justify-items: center; align-content: center; gap: 8px; }
+.review-card .stage-caption { color: #d1c6a9; margin: 0; }
+.review-card blockquote { max-width: 28ch; margin: 4px 0 11px; font-size: clamp(1.35rem, 3vw, 2.6rem); font-weight: 500; line-height: 1.21; text-wrap: balance; }
+.review-person { color: #dee8e5; font-weight: 500; font-size: .98rem; }
+.review-project { color: #a6beb7; font-size: .85rem; }
+.review-selector { display: inline-flex; gap: 5px; padding: 4px; margin-block-start: 17px; border: 1px solid #42645e; border-radius: 11px; }
+.review-selector button { min-height: 44px; padding: 6px 11px; color: #b7d0cb; background: transparent; border: 1px solid transparent; border-radius: 7px; }
+.review-selector button[aria-pressed="true"] { color: #e4faf2; background: #254842; border-color: #578678; }
+.review-selector button:hover { color: #fff; }
+
+@media (max-width: 820px) {
+  .work-cards { gap: 12px; }
+}
+@media (max-width: 650px) {
+  .work-cards { grid-template-columns: minmax(0, 1fr); }
+  .client-grid { gap: 8px; }
+  .client-tile { min-height: 154px; padding: 14px 7px; font-size: .81rem; }
+  .client-emblem { width: 76px; }
+  .client-tile strong { font-size: .79rem; }
+}
+@media (max-width: 360px) {
+  .client-tile > .arrow { inset-block-start: 7px; }
+}

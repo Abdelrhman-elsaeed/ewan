@@ -1,0 +1,19 @@
+# Generated delivery bundles and previews
+*.zip
+/services-preview.png
+/outputs/
+
+# Local render caches and tooling
+**/.hyperframes/
+**/node_modules/
+**/.cache/
+*.log
+
+# Local configuration and credentials
+.env
+.env.*
+!.env.example
+
+# Operating system files
+Thumbs.db
+.DS_Store
