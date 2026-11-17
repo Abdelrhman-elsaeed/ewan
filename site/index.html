@@ -16,6 +16,7 @@
   <link rel="stylesheet" href="assets/services.css">
   <link rel="stylesheet" href="assets/interactions.css">
   <link rel="stylesheet" href="assets/refinements.css">
+  <link rel="stylesheet" href="assets/visual-polish.css">
   <script defer src="assets/vendor/lenis.min.js"></script>
   <script defer src="assets/motion/gsap.min.js"></script>
   <script defer src="assets/services-data.js"></script>
@@ -112,7 +113,7 @@
       <div class="container section">
         <div class="section-intro">
           <p class="section-label" data-text="navWork">أعمالنا</p>
-          <h2 id="work-title" data-text="workTitle">من إدارة المدارس لبيع الدورات.</h2>
+          <h2 id="work-title" data-text="workTitle">برمجيات اتبنت<br>لشغل حقيقي.</h2>
         </div>
         <div class="work-cards">
         <article class="work-card">
@@ -126,7 +127,8 @@
             </div>
           </div>
           <div class="work-meta">
-            <div class="work-caption"><h3 data-text="projectName">متوسطة الفلاح الأهلية</h3><p data-text="workDetails">موقع تعريفي لمدرسة في مكة المكرمة، يعرض أخبارها ومنجزاتها ويتيح الوصول إلى نظام الفلاح.</p></div>
+            <div class="work-caption"><p class="work-type" data-text="schoolProject">منصة لإدارة المدرسة</p><h3 data-text="projectName">متوسطة الفلاح الأهلية</h3><p data-text="workDetails">من واجهة المدرسة إلى الحضور والمتابعة والملفات والجدول؛ تجربة تجمع تفاصيل اليوم الدراسي في مكان واحد.</p></div>
+            <ul class="work-capabilities" aria-label="خصائص المشروع" data-label="workCapabilities"><li data-text="schoolFeature1">الحضور ومتابعة الطلاب</li><li data-text="schoolFeature2">الملفات والجدول الذكي</li><li data-text="schoolFeature3">التواصل مع ولي الأمر</li></ul>
             <a class="button button-outline magnetic" href="https://alfalah.systems/" target="_blank" rel="noopener noreferrer"><span data-text="workVisit">زيارة الموقع</span><span class="arrow" aria-hidden="true">↗</span></a>
           </div>
         </article>
@@ -141,7 +143,8 @@
             </div>
           </div>
           <div class="work-meta">
-            <div class="work-caption"><h3 data-text="taalamName">تعلّم بوعي</h3><p data-text="taalamDetails">منصة تعليمية ومتجر لعرض الدورات وشرائها، مع تصنيفات وسلّة وحساب للمتعلّم.</p></div>
+            <div class="work-caption"><p class="work-type" data-text="learningProject">منصة تعليم ومتجر دورات</p><h3 data-text="taalamName">تعلّم بوعي</h3><p data-text="taalamDetails">من اكتشاف الدورة إلى شرائها ومتابعتها؛ منصة ترتّب المحتوى وتسهّل رحلة المتعلّم.</p></div>
+            <ul class="work-capabilities" aria-label="خصائص المشروع" data-label="workCapabilities"><li data-text="learningFeature1">دورات بتصنيفات واضحة</li><li data-text="learningFeature2">سلّة وشراء الدورات</li><li data-text="learningFeature3">حساب خاص للمتعلّم</li></ul>
             <a class="button button-outline magnetic" href="https://taalambwaey.com/" target="_blank" rel="noopener noreferrer"><span data-text="workVisit">زيارة الموقع</span><span class="arrow" aria-hidden="true">↗</span></a>
           </div>
         </article>
@@ -252,8 +255,8 @@
     <section class="section container contact-section" id="contact" aria-labelledby="contact-title">
       <div class="section-intro">
         <p class="section-label" data-text="contactLabel">التواصل</p>
-        <h2 id="contact-title" data-text="contactTitle">إيه اللي محتاج تبنيه؟</h2>
-        <p data-text="contactBody">احكِ لنا عن فريقك والمشكلة اللي عايز البرمجيات تحلّها.</p>
+        <h2 id="contact-title" data-text="contactTitle">خلّي الخطوة الجاية<br>أبسط على فريقك.</h2>
+        <p data-text="contactBody">احكِ لنا عن الشغل اللي بياخد وقتك، ونشوف إزاي نبني له حل يناسبك.</p>
       </div>
       <form class="contact-form" id="brief-form">
         <div class="fields-row">
