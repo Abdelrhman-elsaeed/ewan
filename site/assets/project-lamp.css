@@ -1,5 +1,6 @@
 /* A shallow metal light bar, built from perspective faces rather than a flat glow. */
 @property --lamp-power { syntax: '<number>'; inherits: true; initial-value: 1; }
+@property --mist-cover { syntax: '<number>'; inherits: false; initial-value: 1; }
 .work-showcase { position: relative; isolation: isolate; --lamp-power: 1; }
 .work-showcase[data-lamp-state="waiting"] { --lamp-power: 0; }
 .project-lamp { position: relative; z-index: 2; width: min(84%,880px); height: 91px; margin: -10px auto 35px; perspective: 1000px; pointer-events: none; direction: ltr; }
@@ -20,8 +21,8 @@
 .lamp-emission { position: absolute; left: 18px; right: 18px; top: 38px; height: 5px; transform: translateZ(14px); border-radius: 100%; background: #e2ffed; opacity: var(--lamp-power); box-shadow: 0 0 7px 2px #d8ffea,0 5px 19px 5px #7bffc3b5,0 17px 40px 9px #65dfa65c; }
 .lamp-spill { position: absolute; top: 58px; left: -5%; width: 110%; height: 440px; opacity: var(--lamp-power); background: radial-gradient(ellipse 48% 90% at 50% 0,#b9fbd44f 0%,#8cebc432 23%,#69d5ac18 48%,transparent 77%); mask-image: linear-gradient(90deg,transparent,#000 19%,#000 81%,transparent); filter: blur(18px); }
 .lamp-pool { position: absolute; top: 104px; left: -6%; width: 112%; height: 225px; opacity: var(--lamp-power); background: radial-gradient(ellipse,#b1f3d12e,transparent 72%); filter: blur(24px); }
-.lamp-atmosphere { position: absolute; top: 62px; left: -4%; width: 108%; height: 320px; overflow: hidden; opacity: calc(var(--lamp-power)*.4); mask-image: radial-gradient(ellipse 49% 64% at 50% 29%,#000 2%,#000b 30%,transparent 77%); mix-blend-mode: screen; }
-.lamp-mist { display: block; width: 120%; height: 125%; margin-left: -10%; margin-top: -20px; animation: lamp-cold-air 18s ease-in-out infinite alternate; animation-play-state: paused; }
+.lamp-atmosphere { position: absolute; top: 62px; left: -4%; width: 108%; height: 320px; overflow: hidden; opacity: calc(var(--lamp-power)*.28); mask-image: radial-gradient(ellipse 49% 64% at 50% 29%,#000 2%,#000b 30%,transparent 77%),radial-gradient(circle 110px at var(--mist-cursor-x,-999px) var(--mist-cursor-y,-999px),rgb(0 0 0 / var(--mist-cover)) 0%,rgb(0 0 0 / var(--mist-cover)) 25%,#000 100%); mask-composite: intersect; mix-blend-mode: screen; transition: --mist-cover .3s ease-out; }
+.lamp-mist { display: block; width: 120%; height: 125%; margin-left: -10%; margin-top: -20px; translate: var(--mist-drift-x,0px) var(--mist-drift-y,0px); transition: translate .7s cubic-bezier(.2,.7,.3,1); animation: lamp-cold-air 18s ease-in-out infinite alternate; animation-play-state: paused; }
 .lamp-inview .lamp-mist { animation-play-state: running; }
 .reference-page-hidden .lamp-mist { animation-play-state: paused; }
 @keyframes lamp-cold-air { from { transform: translate3d(-2%,8px,0) scale(1); } to { transform: translate3d(2%,-15px,0) scale(1.06); } }
@@ -42,7 +43,7 @@
 .work-showcase .work-cards { position: relative; z-index: 1; }
 :root[data-theme="light"] .lamp-spill { background: radial-gradient(ellipse 48% 90% at 50% 0,#43856238,#66996e21 34%,transparent 77%); }
 :root[data-theme="light"] .lamp-pool { background: radial-gradient(ellipse,#6a9b7127,transparent 69%); }
-:root[data-theme="light"] .lamp-atmosphere { mix-blend-mode: normal; opacity: calc(var(--lamp-power)*.26); }
+:root[data-theme="light"] .lamp-atmosphere { mix-blend-mode: normal; opacity: calc(var(--lamp-power)*.18); }
 :root[data-theme="light"] .lamp-emission { box-shadow: 0 0 7px 2px #d9ffe9,0 5px 17px 4px #61b58588,0 17px 33px 7px #43896432; }
 :root[data-theme="light"] .lamp-spark { stroke: #b76a18; fill: #bd751f; filter: drop-shadow(0 0 3px #ffc574b3); }
 @media (max-width:820px) {
