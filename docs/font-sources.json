@@ -1,0 +1,32 @@
+[
+  {
+    "family": "Thmanyah Sans",
+    "weight": 400,
+    "source": "https://cdn.jsdelivr.net/gh/engdawood/thmanyah-font-web@4266a9d/fonts/thmanyah-sans/woff2/thmanyah-sans-Regular.woff2",
+    "sha256": "5bb4fa412273ca31d5c7a165191568b099069cb74bf1fc1dfcdc6a3c2a97552e"
+  },
+  {
+    "family": "Thmanyah Sans",
+    "weight": 500,
+    "source": "https://cdn.jsdelivr.net/gh/engdawood/thmanyah-font-web@4266a9d/fonts/thmanyah-sans/woff2/thmanyah-sans-Medium.woff2",
+    "sha256": "490bf85c58c82b5989a557ed18cd6c6e5a7518b8a440032acf946b5cb7de2850"
+  },
+  {
+    "family": "Thmanyah Sans",
+    "weight": 700,
+    "source": "https://cdn.jsdelivr.net/gh/engdawood/thmanyah-font-web@4266a9d/fonts/thmanyah-sans/woff2/thmanyah-sans-Bold.woff2",
+    "sha256": "90f7c5b4c796e102eee70e20a9346fe680c8bfe38289932b5e94290d9f150fb7"
+  },
+  {
+    "family": "Thmanyah Serif Display",
+    "weight": 500,
+    "source": "https://cdn.jsdelivr.net/gh/engdawood/thmanyah-font-web@4266a9d/fonts/thmanyah-serif-display/woff2/thmanyah-serif-display-Medium.woff2",
+    "sha256": "e21a2ea53f90d8e57560d34e0f7dd613d0ebd3a6a19a9a2af3e258638f5f6259"
+  },
+  {
+    "family": "Thmanyah Serif Display",
+    "weight": 700,
+    "source": "https://cdn.jsdelivr.net/gh/engdawood/thmanyah-font-web@4266a9d/fonts/thmanyah-serif-display/woff2/thmanyah-serif-display-Bold.woff2",
+    "sha256": "d36da84ee5423145415425bdd9c10dc27f57a66afec031bd7b78e662572846ce"
+  }
+]

@@ -6,7 +6,7 @@
   let heroTimeline;
 
   function refreshProof() {
-    track.querySelector('[aria-hidden="true"]')?.remove();
+    track.querySelector(':scope > .proof-group[aria-hidden="true"]')?.remove();
     const clone = group.cloneNode(true);
     clone.setAttribute('aria-hidden', 'true');
     clone.inert = true;

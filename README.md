@@ -24,6 +24,7 @@ python tools/package.py
 - `main` يحفظ النسخة السابقة للتحسينات الجمالية، عند commit `a170653`.
 - العلامة `checkpoint-before-visual-polish` مرجع ثابت للعودة إلى هذه النسخة.
 - العلامة `checkpoint-before-light-mode` تحفظ نسخة شبكة المشاريع السابقة لإضافة الوضع الفاتح والهيرو الجديد.
+- العلامة `checkpoint-before-reference-details` تحفظ نسخة الوضعين قبل تحديث الخطوط والشريط والنيون والتكتشر.
 - `design/visual-polish` يحتوي شبكة المشاريع ووصفها الموسّع، والهيرو باسم الشركة، والوضعين الداكن والفاتح.
 
 لمعاينة نقطة الرجوع على فرع جديد، بعد حفظ أي تعديلات محلية:
@@ -88,7 +89,7 @@ git switch -c review/checkpoint checkpoint-before-visual-polish
 
 ## ترتيب الصفحة والهيرو
 
-الترتيب: الهيرو ← شريط العملاء بعنوان «شراكات نعتزّ بيها» في المنتصف ← أعمالنا ← فوائد النظام ← طريقة العمل ← قسم مستقل «شركائنا» ← عن إيوان ← فيديوهات العملاء ← التواصل. قسم الشركاء يعرض شعارَي الفلاح وتعلّم بوعي، ورابط «شركائنا» في شريط التنقّل يصل إليه مباشرة. يعرض هذا التسلسل الدليل على الأعمال قبل تفاصيل الحل وطريقة تنفيذه.
+الترتيب: الهيرو ← شريط العملاء بعنوان «شراكات نعتزّ بيها» في المنتصف ← أعمالنا ← شريط الخدمات المتحرك ← فوائد النظام ← طريقة العمل ← «أبرز العملاء» ← عن إيوان ← فيديوهات العملاء ← التواصل. قسم «أبرز العملاء» يعرض شعارَي الفلاح وتعلّم بوعي بلون موحّد من الهوية، ورابط «العملاء» في شريط التنقّل يصل إليه مباشرة.
 
 عنوان الهيرو الحالي «إيوان للبرمجيات»، مع سلوجان أصغر في سطر واحد: «برمجيات بإتقان. أعمال بانسياب.» الاسم نص حي، بعمق ولمعان CSS واستجابة محدودة لحركة الماوس، مع الحفاظ على اتصال الحروف العربية. التنسيقات في `site/assets/hero-brand.css` والحركة وإدارة الشريط في `site/assets/hero-proof.js`. إضاءة الشعار بحواف وظلال تتبع الماوس، ومادته تتغيّر لتظهر بوضوح في الوضع الفاتح.
 
@@ -117,8 +118,24 @@ git switch -c review/checkpoint checkpoint-before-visual-polish
 
 ## الهوية والصورة الرئيسية
 
-أُعيد رسم العلامة بهندسة منتظمة من لقطة الهوية. ملفات PNG للعلامة 1200 × 1200 بكسل، وملفات الشعار الكامل 1192 × 1228 بكسل. الخط العربي IBM Plex Sans Arabic، والإنجليزي Geist. تراخيص الخطوط مرفقة مع الملفات.
+أُعيد رسم العلامة بهندسة منتظمة من لقطة الهوية. ملفات PNG للعلامة 1200 × 1200 بكسل، وملفات الشعار الكامل 1192 × 1228 بكسل. الخطوط الحالية: Thmanyah Sans للنص العربي وThmanyah Serif Display للعناوين، وInter للنص الإنجليزي مع DM Serif Display للعناوين كبديل متاح لـ TAN Headline المدفوع. تفاصيل المصادر والتضمين في `docs/reference-study.md`. احتُفظ بخطوط الهوية السابقة كاحتياط عند عدم تحميل الخطوط الجديدة.
+
+## الخطوط والشريط والتأثيرات
+
+بطاقتا الأعمال تعرضان التقنيات المستخدمة بأيقونات وأسماء. الفلاح: Angular وTypeScript وC# / .NET وEF Core وSQL Server وSignalR. تعلّم بوعي: Laravel وPHP وBlade وAlpine.js وTailwind CSS وVite. تم التحقق من ملفات تعريف المشروعين، والتفاصيل في `docs/project-technologies.md`. تنسيق الأيقونات في `site/assets/project-stacks.css`، وأصول Devicon وترخيصها مرفقة محليًا.
+
+استُخدمت مهارتا Frontend Design وReverse Engineering لدراسة [المرجع الذي حدده المستخدم](https://www.ahmedali.online/ar). توثيق المشاهدة والمصادر في `docs/reference-study.md`، والكود الخاص بإيوان في `site/assets/reference-detail.css` و`reference-detail.js`.
+
+شريط الخدمات صفّان من كبسولات الأتمتة والذكاء الاصطناعي وتطوير الويب والموبايل والدسكتوب، مع مجالات إيوان الأخرى. يتكرر دون فجوة، ويتوقف عند الهوفر أو الخروج من الشاشة، ويصبح قابلًا للتمرير اليدوي مع تقليل الحركة.
+
+التكتشر حقل من أجزاء بوابات هندسية يستجيب للماوس، ويُبعد عن النصوص والكروت حتى لا يقلّل الوضوح. يتوقف العمل المستمر بعد هدوء الماوس ويختفي على اللمس وتقليل الحركة. النيون خط رفيع يدور حول بطاقات المشاريع والفيديوهات وإطار مراحل العمل ونموذج التواصل، ويتوقف خارج الشاشة ومع تقليل الحركة.
+
+اللوجوهات تستخدم الأصول الأصلية ومرشّح SVG موحّدًا يزيل الخلفيات الفاتحة ويصبغ العلامة بلون إيوان المناسب للوضع الحالي. لا توجد بطاقات محيطة بلوجوهات «أبرز العملاء». فُحصت اللغتان والوضعان بعروض 320 و390 و768 و1440 بكسل، والحركة والإيقاف وتبديل اللغة وتحميل الخطوط والتباين وثبات مشاهد العرض.
 
 استُخدم ImageGen المدمج لصورة عتبة الهيرو، المحفوظة في `site/assets/threshold.webp` وبحجم إضافي للموبايل في `threshold-small.webp`. الشعار عنصر منفصل فوق الصورة.
 
 > Create a premium photorealistic architectural hero BACKGROUND PLATE asset for Ewan Software, wide 16:9 or wider composition. No text, no branding, no logo, no icons, no interface. Black obsidian architecture, a symmetrical dark cavern viewed in centered one-point perspective, a low angular black stone/black brushed-metal floor with very fine construction joints and a quiet specular reflection, an abstract series of DEEP RECESSED rectangular portals suggested almost entirely by darkness and subtle emerald backlight at the exact center, like the spatial remainder of an architectural threshold. Mostly almost-black dark ink teal (#081218), with a restrained teal haze (#0D7663) and strong concentrated icy pale mint volumetric backlight from just behind the CENTER point. Thin slanting crepuscular mint rays fan down toward the floor beginning near center, natural roughness and finely textured air, not a wireframe or sci fi stage. Far sides black and empty, top edge and bottom edge fade to near-black, absolutely no bright frame or object in the central foreground, because the designer composites a white logo at center. This is one composed optical effect, not many ornamental elements. High-end architectural photography, understated chiaroscuro. Suitable for overlaying very large white copy near bottom; keep bottom third especially black. No text.
+
+### إضاءة الأعمال
+
+لمبة LED مجسّمة فوق كروت المشاريع، مع إقلاع عند الوصول إليها: نبضتان قصيرتان وشرارة كهرمانية من الطرفين ثم نور نعناعي ثابت. الجسم بسمك 35px والمسافة أسفله أوسع، وإضاءة محلية أوضح على منطقة المشاريع. لا يتكرر الإقلاع عند الرجوع إلى القسم. تقليل الحركة يعرض الضوء ثابتًا دون شرر. إقلاع اللمبة يستغرق 1.2 ثانية؛ جوانب الشعاع ناعمة ومتلاشية، مع ضباب بارد خفيف داخل النور. التفاصيل في `docs/project-lamp.md`.

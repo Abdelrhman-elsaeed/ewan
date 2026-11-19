@@ -1,0 +1,6 @@
+:root { font-family: 'Thmanyah Sans','Inter',sans-serif; }
+:root[lang="en"] { font-family: 'Inter',sans-serif; }
+:root[lang="ar"] .scene-copy h2 { font-family: 'Thmanyah Serif Display',serif; font-weight: 700; line-height: 1.4; font-size: clamp(30px,4vw,51px); }
+:root[lang="en"] .scene-copy h2 { font-family: 'DM Serif Display',Georgia,serif; font-weight: 400; letter-spacing: -.01em; }
+.sheet-context b,.phone-head b,.phone-notice-time,.skill-gauge b,.document-id,.insight-stats b,.tiny-trend,.film-bars span,.check-sign { font-family: 'Inter',sans-serif; }
+@media (max-width:700px) { :root[lang="ar"] .scene-copy h2 { font-size: clamp(27px,6.4vw,37px); line-height: 1.35; } }
