@@ -3,7 +3,7 @@ window.EWAN_COPY = {
     skip: 'Skip to content',
     brand: 'Ewan<small>Software</small>',
     navLabel: 'Main navigation', menuLabel: 'Menu',
-    navServices: 'Services', navWork: 'Work', navProcess: 'Process', navClients: 'Clients', navAbout: 'About',
+    navServices: 'Services', navWork: 'Work', navProcess: 'Process', navClients: 'Clients', navAbout: 'About', navFounder: 'Founder',
     start: 'Start a project', heroWork: 'Explore our work', scrollLabel: 'Explore services',
     heroTitle: '<span class="hero-name" data-depth="Ewan Software"><span class="hero-name-face">Ewan Software</span></span>',
     heroName: 'Ewan Software', heroTagline: 'Built with care. Made to flow.',

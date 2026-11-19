@@ -134,7 +134,7 @@
   document.addEventListener('pointerdown', event => {
     if (!event.target.closest('.nav-shell')) toggleMenu(false);
   });
-  matchMedia('(max-width: 820px)').addEventListener('change', () => toggleMenu(false));
+  matchMedia('(max-width: 1100px)').addEventListener('change', () => toggleMenu(false));
 
   function updateHeader() {
     document.body.classList.toggle('is-scrolled', window.scrollY > 48);
