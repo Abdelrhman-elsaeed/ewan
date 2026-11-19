@@ -147,7 +147,16 @@
           <div class="project-lamp" aria-hidden="true">
             <div class="lamp-spill"></div>
             <div class="lamp-pool"></div>
-            <div class="lamp-atmosphere"><svg class="lamp-mist" viewBox="0 0 1000 380" preserveAspectRatio="none"><defs><filter id="lamp-mist-texture" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".008 .019" numOctaves="3" seed="17"/><feColorMatrix type="matrix" values="0 0 0 0 .74  0 0 0 0 .93  0 0 0 0 .85  1.9 0 0 0 -.66"/><feGaussianBlur stdDeviation="2.4"/></filter></defs><rect width="1000" height="380" filter="url(#lamp-mist-texture)"/></svg></div>
+            <div class="lamp-atmosphere">
+              <svg class="lamp-mist" viewBox="0 0 1000 380" preserveAspectRatio="none">
+                <defs>
+                  <filter id="lamp-mist-texture" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".008 .019" numOctaves="3" seed="17"/><feColorMatrix type="matrix" values="0 0 0 0 .74  0 0 0 0 .93  0 0 0 0 .85  1.9 0 0 0 -.66"/><feGaussianBlur stdDeviation="2.4"/></filter>
+                  <filter id="lamp-mist-texture-back" x="0" y="0" width="100%" height="100%"><feTurbulence type="fractalNoise" baseFrequency=".011 .014" numOctaves="3" seed="43"/><feColorMatrix type="matrix" values="0 0 0 0 .74  0 0 0 0 .93  0 0 0 0 .85  1.9 0 0 0 -.66"/><feGaussianBlur stdDeviation="3.2"/></filter>
+                </defs>
+                <g class="mist-wisp mist-wisp-back"><rect width="1000" height="380" filter="url(#lamp-mist-texture-back)"/></g>
+                <g class="mist-wisp"><rect width="1000" height="380" filter="url(#lamp-mist-texture)"/></g>
+              </svg>
+            </div>
             <div class="lamp-mount"><i></i></div>
             <div class="lamp-housing">
               <div class="lamp-top"></div>
