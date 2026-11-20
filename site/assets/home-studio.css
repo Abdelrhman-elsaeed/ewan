@@ -1,57 +1,25 @@
-.home-passage {
-  --gallery-stone: url("threshold.webp");
-  --gallery-seam: #b8e7d12b;
-  --gallery-shadow: #030a0d;
-}
-
-.services-studio {
-  --studio-ceiling: #061014;
-  --studio-strip: #091719ab;
-  --studio-scrim: #040e1178;
-  position: relative;
+.home-passage #work {
+  --studio-base: #061014;
+  --studio-scrim: #040e119e;
   isolation: isolate;
 }
 
-:root[data-theme="light"] .home-passage {
-  --gallery-stone: url("threshold-light.webp");
-  --gallery-seam: #5d897a47;
-  --gallery-shadow: #edf4ec;
+:root[data-theme="light"] .home-passage #work {
+  --studio-base: #e9f1e7;
+  --studio-scrim: #f5f8f46b;
 }
 
-:root[data-theme="light"] .services-studio {
-  --studio-ceiling: #e9f1e7;
-  --studio-strip: #f5f8f4b3;
-  --studio-scrim: #f5f8f444;
-}
-
-/* The same stone as the entrance, seen up close. The lamp reveals its joints
-   using the same power value as its diffuser and light spill. */
-.work-showcase::before {
-  content: '';
-  position: absolute;
-  z-index: -1;
-  pointer-events: none;
-  inset-block: 46px 0;
-  left: 50%;
-  width: min(100vw, 1560px);
-  max-height: 980px;
-  transform: translateX(-50%);
-  background:
-    repeating-linear-gradient(90deg, transparent 0 calc(25% - 1px), var(--gallery-seam) calc(25% - 1px) 25%),
-    linear-gradient(180deg, transparent 12%, var(--gallery-shadow)),
-    var(--gallery-stone) 28% 11% / max(2600px, 440%) auto no-repeat;
-  mask-image: radial-gradient(ellipse 69% 82% at 50% 31%, #000 25%, transparent 98%);
-  opacity: calc(.16 + .49 * var(--lamp-power));
-}
-
+/* Crossfade over the last of the hero floor. Keep the gallery anchored to the
+   title and lamp, and let it recede behind the lower part of the cards. */
 .studio-backdrop {
   position: absolute;
   z-index: -1;
   pointer-events: none;
-  inset: -64px 0 0;
+  inset: -24px 0 auto;
+  height: min(100%, clamp(800px, 72vw, 1160px));
   overflow: clip;
-  mask-image: linear-gradient(transparent, #000 11%, #000 61%, transparent 99%);
-  background: var(--studio-ceiling);
+  mask-image: linear-gradient(transparent, #000 165px, #000 55%, transparent);
+  background: var(--studio-base);
 }
 
 .studio-backdrop img {
@@ -61,7 +29,7 @@
   height: 100%;
   object-fit: cover;
   object-position: center top;
-  transform-origin: 50% 22%;
+  transform-origin: 50% 26%;
 }
 
 .studio-light,
@@ -72,49 +40,31 @@
   content: '';
   position: absolute;
   inset: 0;
-  background: radial-gradient(ellipse 35% 39% at 50% 36%, var(--studio-scrim), transparent 100%);
+  background: radial-gradient(ellipse 43% 33% at 50% 22%, var(--studio-scrim), transparent);
 }
-
-.home-passage #work { border-bottom-color: transparent; }
-
-.services-studio #capabilities {
-  background: linear-gradient(transparent, var(--studio-strip) 24% 76%, transparent);
-  border-color: transparent;
-}
-
-.services-studio .section-intro > p:last-child { color: var(--white); }
 
 @media (max-width: 650px) {
+  .studio-backdrop {
+    height: min(100%, 790px);
+    mask-image: linear-gradient(transparent, #000 128px, #000 58%, transparent);
+  }
   .studio-backdrop::after {
-    background: radial-gradient(ellipse 72% 43% at 50% 36%, var(--studio-scrim), transparent 100%);
+    background: radial-gradient(ellipse 82% 35% at 50% 23%, var(--studio-scrim), transparent);
   }
 }
 
-@supports (animation-timeline: view()) and (animation-range: entry 0% cover 65%) {
+@supports (animation-timeline: view()) and (animation-range: entry 4% entry 85%) {
   @media (prefers-reduced-motion: no-preference) {
-    .services-studio { view-timeline-name: --studio-entrance; }
+    .home-passage #work { view-timeline-name: --studio-entrance; }
     .studio-backdrop img {
       animation: enter-studio auto linear both;
       animation-timeline: --studio-entrance;
-      animation-range: entry 0% cover 65%;
-    }
-    .services-studio .capability-lane {
-      animation: reveal-capabilities auto ease-out both;
-      animation-timeline: --studio-entrance;
-      animation-range: entry 5% entry 48%;
-    }
-    .services-studio .capability-lane + .capability-lane {
-      animation-range: entry 16% entry 60%;
+      animation-range: entry 4% entry 85%;
     }
   }
 }
 
 @keyframes enter-studio {
-  from { transform: scale(1.2); }
+  from { transform: scale(1.16); }
   to { transform: none; }
-}
-
-@keyframes reveal-capabilities {
-  from { translate: 0 22px; opacity: .32; }
-  to { translate: none; opacity: 1; }
 }
