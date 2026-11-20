@@ -1,0 +1,87 @@
+.home-passage {
+  --passage-floor: #060e11;
+  --client-surface: #0a1b1db3;
+  --work-surface: #14403838;
+  overflow: clip;
+}
+
+:root[data-theme="light"] .home-passage {
+  --passage-floor: #f5f8f4;
+  --client-surface: #edf4ea9c;
+  --work-surface: #dcebd555;
+}
+
+/* The original hero pictures extend beneath the next two sections. Their
+   existing masks dissolve into the same surface that sits behind the cards. */
+.home-passage #top {
+  overflow: visible;
+  background: linear-gradient(180deg, #03090b 0%, var(--passage-floor) 100%);
+}
+
+:root[data-theme="light"] .home-passage #top { background: var(--passage-floor); }
+.home-passage .hero-photo { pointer-events: none; }
+
+.home-passage #clients {
+  background: linear-gradient(transparent, var(--client-surface) 22% 91%, transparent);
+  border-color: transparent;
+}
+
+.home-passage #work {
+  position: relative;
+  background: radial-gradient(ellipse at 50% 0, var(--work-surface), transparent 62%);
+  border-top-color: transparent;
+}
+
+@supports (animation-timeline: view()) and (animation-range: exit-crossing 0% exit-crossing 100%) {
+  @media (prefers-reduced-motion: no-preference) {
+    .home-passage #top {
+      view-timeline-name: --entrance;
+      --corridor-travel: 77%;
+      --corridor-scale: 1.57;
+    }
+
+    .home-passage .hero-photo {
+      transform-origin: 50% 37%;
+      animation-name: corridor-passage;
+    }
+
+    .home-passage .hero-fade { animation-name: entrance-fade; }
+    .home-passage .hero-symbol { animation-name: entrance-mark; }
+    .home-passage .hero-frame { animation-name: entrance-edges; }
+
+    .home-passage :is(.hero-photo, .hero-fade, .hero-symbol, .hero-frame) {
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: --entrance;
+      animation-range: exit-crossing 0% exit-crossing 100%;
+    }
+
+    @media (max-width: 650px) {
+      .home-passage #top {
+        --corridor-travel: 68%;
+        --corridor-scale: 1.33;
+      }
+    }
+  }
+}
+
+@keyframes corridor-passage {
+  from { transform: none; }
+  to { transform: translateY(var(--corridor-travel)) scale(var(--corridor-scale)); }
+}
+
+@keyframes entrance-fade {
+  from { opacity: 1; }
+  75%, to { opacity: 0; }
+}
+
+@keyframes entrance-mark {
+  from { transform: none; }
+  to { transform: translateY(-14%) scale(1.16); }
+}
+
+@keyframes entrance-edges {
+  from { transform: none; opacity: 1; }
+  to { transform: translateY(-3%) scale(1.12); opacity: 0; }
+}
