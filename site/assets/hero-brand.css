@@ -9,6 +9,49 @@
 .hero .hero-description { margin-top: 18px; max-width: 570px; font-size: clamp(.95rem,1.4vw,1.08rem); line-height: 1.85; }
 .hero-actions { margin-top: 27px; }
 .hero-photo-light { opacity: 0; }
+
+/* Let the existing corridor recede more slowly than the type as the visitor
+   scrolls past it. Animate the picture wrapper, preserving the image crop,
+   falloff, and both original theme assets. */
+@supports (animation-timeline: view()) and (animation-range: exit-crossing 0% exit-crossing 100%) {
+  @media (prefers-reduced-motion: no-preference) {
+    .hero {
+      view-timeline-name: --entrance;
+      --corridor-travel: 31%;
+      --corridor-scale: 1.21;
+    }
+    .hero-photo { transform-origin: 50% 35%; animation-name: corridor-passage; }
+    .hero-content { animation-name: entrance-type; }
+    .hero-symbol { animation-name: entrance-mark; }
+    .hero-frame { animation-name: entrance-edges; }
+    .hero :is(.hero-photo, .hero-content, .hero-symbol, .hero-frame) {
+      animation-duration: auto;
+      animation-timing-function: linear;
+      animation-fill-mode: both;
+      animation-timeline: --entrance;
+      animation-range: exit-crossing 0% exit-crossing 100%;
+    }
+    @media (max-width: 620px) {
+      .hero { --corridor-travel: 22%; --corridor-scale: 1.13; }
+    }
+  }
+}
+@keyframes corridor-passage {
+  from { transform: none; }
+  to { transform: translateY(var(--corridor-travel)) scale(var(--corridor-scale)); }
+}
+@keyframes entrance-type {
+  from { translate: none; }
+  to { translate: 0 7%; }
+}
+@keyframes entrance-mark {
+  from { transform: none; }
+  to { transform: translateY(-14%) scale(1.16); }
+}
+@keyframes entrance-edges {
+  from { transform: none; }
+  to { transform: translateY(-3%) scale(1.12); }
+}
 @media (max-width:650px) {
   .hero { min-height: 700px; }
   .hero-symbol { width: 139px; margin-bottom: 28px; }
